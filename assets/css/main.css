@@ -21,8 +21,9 @@ a {
   text-decoration: none;
   color: inherit;
 }
-.clear-fix {
-  clear: both;
+::selection {
+  background-color: rgba(142, 119, 84, 0.5);
+  color: #fff;
 }
 .container {
   padding-left: 15px;
@@ -65,6 +66,7 @@ a {
 
 /* start home section */
 .home {
+  position: relative;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/drew.jpg);
   background-size: cover;
   background-position: center;
@@ -74,9 +76,9 @@ a {
   justify-content: space-between;
   height: 62px;
   position: sticky;
-  left: 0;
-  top: 0;
   right: 0;
+  left: 0;
+  top: 0px;
 }
 .home .container nav .image img {
   width: 150px;
@@ -109,7 +111,7 @@ a {
   align-items: center;
   text-align: center;
   color: #fff;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 .home .landing .box .myP1 {
   font-size: 20px;
@@ -147,13 +149,15 @@ a {
   border-color: white;
 }
 .home .go-down {
+  display: block;
   border: 2px solid rgba(255, 255, 255, 0.807);
   width: 35px;
   height: 60px;
   border-radius: 25px;
   margin: auto;
   position: relative;
-  margin-top: 100px;
+  margin-top: 50px;
+  cursor: pointer;
 }
 .home .go-down span {
   display: block;
@@ -166,6 +170,7 @@ a {
   left: 50%;
   transform: translateX(-50%);
   top: 7px;
+  animation: down 1s linear infinite;
 }
 .home .fixed-box {
   display: flex;
@@ -233,6 +238,11 @@ a {
 }
 .who-we-are .container img {
   width: 100%;
+  box-shadow: 2px 2px 10px #eee, -2px -2px 10px #eee;
+  transition: 0.3s;
+}
+.who-we-are .container img:hover {
+  transform: scale(1.005);
 }
 .who-we-are .container .content {
   flex: 1;
@@ -265,6 +275,11 @@ a {
   color: #8e7754;
   font-size: 20px;
   margin-right: 10px;
+  transition: 0.5s;
+}
+.who-we-are .container .content ul li i:hover {
+  background-color: #8e7754;
+  color: #fff;
 }
 .who-we-are .container .content ul li span {
   color: #686868;
@@ -317,6 +332,11 @@ a {
 }
 .location-section .container .image img {
   width: 100%;
+  box-shadow: 2px 2px 10px #ccc, -2px -2px 10px #ccc;
+  transition: 0.3s;
+}
+.location-section .container .image img:hover {
+  transform: scale(1.005);
 }
 @media (max-width: 768px) {
   .location-section .container {
@@ -357,6 +377,10 @@ a {
   box-shadow: 0px 0px 13px #eee;
   border-radius: 4px;
   overflow: hidden;
+  transition: 0.3s;
+}
+.our-baking-section .container .content .box:hover {
+  transform: translateY(-7px);
 }
 .our-baking-section .container .content .box img {
   width: 100%;
@@ -431,6 +455,11 @@ a {
   background-color: #8e7754;
   font-size: 20px;
   margin-right: 15px;
+  transition: 0.5s;
+}
+.contact-section .container .content ul li i:hover {
+  background-color: #fff;
+  color: #8e7754;
 }
 .contact-section .container .content ul li span {
   font-size: 18px;
@@ -492,6 +521,14 @@ a {
   color: #969696;
   padding: 0 0 15px;
   margin-bottom: 10px;
+  transition: 0.3s;
+  text-wrap: nowrap;
+}
+.about .container .col ul li:hover {
+  transform: translateX(4px);
+  padding-left: 4px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
 }
 .about .container .col ul li:not(:last-child) {
   border-bottom: 1px solid #9696964a;
@@ -509,6 +546,7 @@ a {
 .about .container .earth ul li {
   padding: 10px 0;
   display: flex;
+  text-wrap: wrap;
 }
 .about .container .earth ul li i {
   font-size: 16px;
@@ -575,3 +613,19 @@ a {
   font-size: 18px;
 }
 /* end footer section */
+
+/* start animation */
+@keyframes down {
+  0% {
+    opacity: 0;
+    top: 7px;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    top: calc(100% - 20px);
+  }
+}
+/* end animation */
